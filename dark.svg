@@ -29,7 +29,7 @@
     }
   </style>
 
-  <rect class="" width="800" height="996" fill="#060606" rx="0" />
+  <rect class="" width="800" height="996" fill="transparent" rx="0" />
 
   
     <g transform="translate(0, 0)" id="widget-widget_1791141275992_0">
@@ -46,7 +46,7 @@
           </style>
         
       
-      <rect class="" x="0" y="0" width="800" height="90" fill="#060606" stroke="#252525" stroke-width="1" rx="0" />
+      <rect class="" x="0" y="0" width="800" height="90" fill="transparent" stroke="#252525" stroke-width="1" rx="0" />
       
       
           <clipPath id="typewriter-clip-widget_1791141275992_0-16">
@@ -115,7 +115,7 @@
           </style>
         
       
-      <rect class="" x="0" y="0" width="480" height="280" fill="#060606" stroke="#252525" stroke-width="1" rx="0" />
+      <rect class="" x="0" y="0" width="480" height="280" fill="transparent" stroke="#252525" stroke-width="1" rx="0" />
       
       
           <clipPath id="typewriter-clip-widget_1791141275992_2-1">
@@ -158,9 +158,10 @@
 
       
       
-      <rect class="" x="0" y="0" width="526" height="202" fill="#060606" stroke="#252525" stroke-width="1" rx="0" />
+      <rect class="" x="0" y="0" width="526" height="202" fill="transparent" stroke="#252525" stroke-width="1" rx="0" />
       
       
+    
     
     
     
@@ -211,7 +212,7 @@
   
 
                 <g transform="translate(544, 402)" id="widget-widget_1791141275992_5">
-      <rect class="" x="0" y="0" width="240" height="202" fill="#060606" stroke="#252525" stroke-width="1" rx="0" />
+      <rect class="" x="0" y="0" width="240" height="202" fill="transparent" stroke="#252525" stroke-width="1" rx="0" />
       <text x="24" y="32" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="500" fill="#7a7a7a" letter-spacing="2">[ TECHNOLOGIES &amp; SKILLS ]</text>
     <g id="skills-icons-grid">
       <!-- Row 1: C#, .NET Core, EF Core, SQL Server, PostgreSQL -->
@@ -323,7 +324,7 @@
 
       
       
-      <rect class="" x="0" y="0" width="280" height="280" fill="#060606" stroke="#252525" stroke-width="1" rx="0" />
+      <rect class="" x="0" y="0" width="280" height="280" fill="transparent" stroke="#252525" stroke-width="1" rx="0" />
       
       
     <clipPath id="avatar-clip-widget_1791141541265">
@@ -445,9 +446,9 @@
           y="0.5"
           rx="4.5"
           height="99%"
-          stroke="#e4e2e2"
+          stroke="#30363d"
           width="466"
-          fill="#151515"
+          fill="transparent"
           stroke-opacity="1"
         />
 
@@ -603,11 +604,11 @@
         </defs>
         <g clip-path='url(#outer_rectangle)'>
             <g style='isolation: isolate'>
-                <rect stroke='#E4E2E2' fill='#151515' rx='4' x='0.5' y='0.5' width='494' height='194'/>
+                <rect stroke='#30363d' fill='transparent' rx='4' x='0.5' y='0.5' width='494' height='194'/>
             </g>
             <g style='isolation: isolate'>
-                <line x1='165' y1='28' x2='165' y2='170' vector-effect='non-scaling-stroke' stroke-width='1' stroke='#E4E2E2' stroke-linejoin='miter' stroke-linecap='square' stroke-miterlimit='3'/>
-                <line x1='330' y1='28' x2='330' y2='170' vector-effect='non-scaling-stroke' stroke-width='1' stroke='#E4E2E2' stroke-linejoin='miter' stroke-linecap='square' stroke-miterlimit='3'/>
+                <line x1='165' y1='28' x2='165' y2='170' vector-effect='non-scaling-stroke' stroke-width='1' stroke='#30363d' stroke-linejoin='miter' stroke-linecap='square' stroke-miterlimit='3'/>
+                <line x1='330' y1='28' x2='330' y2='170' vector-effect='non-scaling-stroke' stroke-width='1' stroke='#30363d' stroke-linejoin='miter' stroke-linecap='square' stroke-miterlimit='3'/>
             </g>
             <g style='isolation: isolate'>
                 <!-- Total Contributions big number -->

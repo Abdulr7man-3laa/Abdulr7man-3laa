@@ -65,7 +65,7 @@ function injectSnake(svgContent, isDark) {
     const innerContent = innerMatch[1];
     const replacement = `<svg width="740" height="152" x="16" y="16" viewBox="${viewBox}" xmlns="http://www.w3.org/2000/svg">\n      ${innerContent}\n    </svg>`;
 
-    const snakeWidgetRegex = /(<g transform="translate\(12, 616\)" id="widget-widget_1791144914293">[\s\S]*?<rect class="" x="0" y="0" width="772" height="184" fill="transparent" stroke="#252525" stroke-width="1" rx="0" \/>\s*\n\s*\n\s*)(<svg[\s\S]*?<\/svg>)(\s*\n\s*\n\s*<\/g>)/;
+    const snakeWidgetRegex = /(<g transform="translate\(12, 616\)" id="widget-widget_1791144914293">[\s\S]*?<rect class="" x="0" y="0" width="772" height="184" fill="transparent" stroke="(?:#252525|#d0d7de)" stroke-width="1" rx="0" \/>\s*\n\s*\n\s*)(<svg[\s\S]*?<\/svg>)(\s*\n\s*\n\s*<\/g>)/;
 
     if (snakeWidgetRegex.test(svgContent)) {
       console.log(`Successfully injected live snake animation into ${isDark ? 'dark.svg' : 'light.svg'}`);
@@ -92,15 +92,19 @@ function updateSvgFile(fileName, topLanguages, totalStars, publicRepos, follower
 
   // Build the Top Languages XML snippet
   const yPositions = [48, 74, 100, 126, 152];
-  let langsXml = `    <text x="24" y="32" font-family="'Inter Tight', sans-serif" font-size="11" font-weight="500" fill="#7a7a7a" letter-spacing="2">[ TOP LANGUAGES ]</text>\n    \n`;
+  const titleColor = isDark ? '#7a7a7a' : '#57606a';
+  const textColor = isDark ? '#e5e5e5' : '#1f2328';
+  const trackColor = isDark ? '#252525' : '#eaeef2';
+
+  let langsXml = `    <text x="24" y="32" font-family="'Inter Tight', sans-serif" font-size="11" font-weight="500" fill="${titleColor}" letter-spacing="2">[ TOP LANGUAGES ]</text>\n    \n`;
 
   topLanguages.forEach((item, index) => {
     const y = yPositions[index] || (48 + index * 26);
     langsXml += `      <g transform="translate(24, ${y})">
         <circle cx="6" cy="8" r="4" fill="${item.color}" />
-        <text x="18" y="14" font-family="'Inter Tight', sans-serif" font-size="12" fill="#e5e5e5">${item.lang}</text>
-        <text x="442" y="14" text-anchor="end" font-family="'Inter Tight', sans-serif" font-size="11" fill="#7a7a7a">${item.formattedPct}</text>
-        <rect x="0" y="20" width="442" height="3" fill="#252525" rx="1" />
+        <text x="18" y="14" font-family="'Inter Tight', sans-serif" font-size="12" fill="${textColor}">${item.lang}</text>
+        <text x="442" y="14" text-anchor="end" font-family="'Inter Tight', sans-serif" font-size="11" fill="${titleColor}">${item.formattedPct}</text>
+        <rect x="0" y="20" width="442" height="3" fill="${trackColor}" rx="1" />
         <rect x="0" y="20" width="${item.barWidth}" height="3" fill="${item.color}" rx="1" />
       </g>\n`;
     if (index < topLanguages.length - 1) {
@@ -121,15 +125,15 @@ function updateSvgFile(fileName, topLanguages, totalStars, publicRepos, follower
   // Update Stars in stats card
   svgContent = svgContent.replace(/(data-testid="stars">\s*)(\d+)(\s*<\/text>)/, `$1${totalStars}$3`);
 
-  // Terminal bio: Repos & Stars
+  // Terminal bio: Repos & Stars (handles both dark and light styling)
   svgContent = svgContent.replace(
-    /(<tspan fill="#7a7a7a">\. Repos: <\/tspan><tspan fill="#4d3a66">\.\.\.\.\.\.\.\.\.\.\.\.\.<\/tspan><tspan fill="#55ffff">\s*)\d+(\s*<\/tspan><tspan fill="#2d1f3f"> \| <\/tspan><tspan fill="#7a7a7a">\. Stars: <\/tspan><tspan fill="#4d3a66">\.\.\.\.\.\.\.\.\.\.\.\.\.<\/tspan><tspan fill="#55ffff">\s*)\d+/,
+    /(<tspan fill="#7a7a7a">\. Repos: <\/tspan><tspan fill="(?:#4d3a66|#d0d7de)">\.\.\.\.\.\.\.\.\.\.\.\.\.<\/tspan><tspan fill="(?:#55ffff|#0969da)">\s*)\d+(\s*<\/tspan><tspan fill="(?:#2d1f3f|#d0d7de)"> \| <\/tspan><tspan fill="#7a7a7a">\. Stars: <\/tspan><tspan fill="(?:#4d3a66|#d0d7de)">\.\.\.\.\.\.\.\.\.\.\.\.\.<\/tspan><tspan fill="(?:#55ffff|#0969da)">\s*)\d+/,
     `$1${publicRepos}$2${totalStars}`
   );
 
-  // Terminal bio: Followers
+  // Terminal bio: Followers (handles both dark and light styling)
   svgContent = svgContent.replace(
-    /(<tspan fill="#7a7a7a">\. Followers: <\/tspan><tspan fill="#4d3a66">\.\.\.\.\.\.\.\.\.<\/tspan><tspan fill="#55ffff">\s*)\d+/,
+    /(<tspan fill="#7a7a7a">\. Followers: <\/tspan><tspan fill="(?:#4d3a66|#d0d7de)">\.\.\.\.\.\.\.\.\.<\/tspan><tspan fill="(?:#55ffff|#0969da)">\s*)\d+/,
     `$1${followers}`
   );
 
