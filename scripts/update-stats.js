@@ -42,6 +42,44 @@ async function fetchJSON(url) {
   return res.json();
 }
 
+function injectSnake(svgContent, isDark) {
+  const snakeFileName = isDark ? 'github-contribution-grid-snake-dark.svg' : 'github-contribution-grid-snake.svg';
+  const snakePath = path.join(__dirname, '..', 'dist', snakeFileName);
+
+  if (!fs.existsSync(snakePath)) {
+    console.log(`Snake file not found at ${snakePath}, skipping snake injection for now.`);
+    return svgContent;
+  }
+
+  try {
+    const snakeSvg = fs.readFileSync(snakePath, 'utf8');
+    const viewBoxMatch = snakeSvg.match(/viewBox="([^"]+)"/);
+    const viewBox = viewBoxMatch ? viewBoxMatch[1] : '-16 -32 880 192';
+
+    const innerMatch = snakeSvg.match(/<svg[^>]*>([\s\S]*?)<\/svg>/);
+    if (!innerMatch) {
+      console.warn(`Could not parse inner SVG from ${snakeFileName}`);
+      return svgContent;
+    }
+
+    const innerContent = innerMatch[1];
+    const replacement = `<svg width="740" height="152" x="16" y="16" viewBox="${viewBox}" xmlns="http://www.w3.org/2000/svg">\n      ${innerContent}\n    </svg>`;
+
+    const snakeWidgetRegex = /(<g transform="translate\(12, 616\)" id="widget-widget_1791144914293">[\s\S]*?<rect class="" x="0" y="0" width="772" height="184" fill="transparent" stroke="#252525" stroke-width="1" rx="0" \/>\s*\n\s*\n\s*)(<svg[\s\S]*?<\/svg>)(\s*\n\s*\n\s*<\/g>)/;
+
+    if (snakeWidgetRegex.test(svgContent)) {
+      console.log(`Successfully injected live snake animation into ${isDark ? 'dark.svg' : 'light.svg'}`);
+      return svgContent.replace(snakeWidgetRegex, `$1${replacement}$3`);
+    } else {
+      console.warn(`Could not find snake container in ${isDark ? 'dark.svg' : 'light.svg'}`);
+    }
+  } catch (err) {
+    console.error(`Error injecting snake into SVG:`, err);
+  }
+
+  return svgContent;
+}
+
 function updateSvgFile(fileName, topLanguages, totalStars, publicRepos, followers) {
   const svgPath = path.join(__dirname, '..', fileName);
   if (!fs.existsSync(svgPath)) {
@@ -50,6 +88,7 @@ function updateSvgFile(fileName, topLanguages, totalStars, publicRepos, follower
   }
 
   let svgContent = fs.readFileSync(svgPath, 'utf8');
+  const isDark = fileName.includes('dark');
 
   // Build the Top Languages XML snippet
   const yPositions = [48, 74, 100, 126, 152];
@@ -96,6 +135,9 @@ function updateSvgFile(fileName, topLanguages, totalStars, publicRepos, follower
 
   // Clean any remaining gitascii class references
   svgContent = svgContent.replaceAll('.gitascii-canvas-bg', '.profile-canvas-bg');
+
+  // Inject contribution snake if dist file exists
+  svgContent = injectSnake(svgContent, isDark);
 
   fs.writeFileSync(svgPath, svgContent, 'utf8');
   console.log(`${fileName} updated successfully.`);
