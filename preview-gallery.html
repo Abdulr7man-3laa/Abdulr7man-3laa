@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GitHub Profile README - Design System Variants</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #06080D;
+      color: #F8FAFC;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      padding: 40px 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .header h1 {
+      font-size: 34px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #38BDF8, #818CF8, #C084FC);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+    }
+    .header p {
+      color: #94A3B8;
+      font-size: 16px;
+    }
+    .variants-container {
+      display: flex;
+      flex-direction: column;
+      gap: 70px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .variant-card {
+      background: #0B0F19;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.7);
+    }
+    .variant-title-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .variant-badge {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+    .badge-bento { background: rgba(56, 189, 248, 0.15); color: #38BDF8; border: 1px solid rgba(56, 189, 248, 0.3); }
+    .badge-cyber { background: rgba(0, 240, 255, 0.15); color: #00F0FF; border: 1px solid rgba(0, 240, 255, 0.3); }
+    .badge-minimal { background: rgba(37, 99, 235, 0.15); color: #60A5FA; border: 1px solid rgba(37, 99, 235, 0.3); }
+    .variant-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+    .variant-desc {
+      color: #94A3B8;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .preview-box {
+      background: #000;
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+    .preview-box img {
+      width: 100%;
+      max-width: 840px;
+      height: auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>GitHub Profile Design Systems</h1>
+    <p>3 distinct architectural styles tailored for Abdulrhman Alaa</p>
+  </div>
+
+  <div class="variants-container">
+    <!-- VARIANT 1 -->
+    <div class="variant-card" id="bento">
+      <div class="variant-title-bar">
+        <div class="variant-title">Style 1: Modern Bento Grid Dashboard</div>
+        <span class="variant-badge badge-bento">Vercel &amp; Linear Aesthetic</span>
+      </div>
+      <p class="variant-desc">
+        <strong>Structure &amp; Philosophy:</strong> Modular Bento Grid layout popular among world-class developer tools. Glassmorphism cards with glowing border gradients, emerald activity badge, balanced 4-gauge stat telemetry, and a dedicated 2-row panoramic tech stack (7 + 6 layout) with rounded frosted tiles.
+      </p>
+      <div class="preview-box">
+        <img src="variant-1-bento.svg?v=1791158474132" alt="Variant 1 Bento">
+      </div>
+    </div>
+
+    <!-- VARIANT 2 -->
+    <div class="variant-card" id="cyber">
+      <div class="variant-title-bar">
+        <div class="variant-title">Style 2: Cyberdeck Sci-Fi HUD Command Deck</div>
+        <span class="variant-badge badge-cyber">Cyberpunk 2077 HUD</span>
+      </div>
+      <p class="variant-desc">
+        <strong>Structure &amp; Philosophy:</strong> Tactical holographic terminal command deck. Features targeting reticles over the chamfered avatar, ASCII diagnostic telemetry tree, neon cyan and hot magenta borders, HUD gauge meters, and a 13-module tactical arsenal grid.
+      </p>
+      <div class="preview-box">
+        <img src="variant-2-cyberdeck.svg?v=1791158474132" alt="Variant 2 Cyberdeck">
+      </div>
+    </div>
+
+    <!-- VARIANT 3 -->
+    <div class="variant-card" id="minimal">
+      <div class="variant-title-bar">
+        <div class="variant-title">Style 3: Neo-Minimalist Swiss Mono</div>
+        <span class="variant-badge badge-minimal">Senior Architect / Editorial</span>
+      </div>
+      <p class="variant-desc">
+        <strong>Structure &amp; Philosophy:</strong> Dieter Rams / Swiss International Typographic Style. Pure graphite black with ultra-crisp hairline dividers, massive typographic statistics, a clean technical specification matrix table, and a disciplined matrix chip layout for skills.
+      </p>
+      <div class="preview-box">
+        <img src="variant-3-minimal.svg?v=1791158474132" alt="Variant 3 Swiss Mono">
+      </div>
+    </div>
+  </div>
+</body>
+</html>
