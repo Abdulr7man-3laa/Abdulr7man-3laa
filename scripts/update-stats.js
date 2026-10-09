@@ -34,6 +34,24 @@ const LANG_COLORS = {
 // Optionally exclude languages from Top Languages display
 const EXCLUDE_FROM_DISPLAY = ['Java'];
 
+// Exclude specific languages from specific repositories
+const REPO_EXCLUDED_LANGUAGES = {
+  'Portfolio': ['CSS'],
+  'Abdulr7man-3laa': ['JavaScript'],
+  'Abdulrhman': ['JavaScript']
+};
+
+function isLanguageExcludedForRepo(repoName, lang) {
+  for (const [rName, excludedLangs] of Object.entries(REPO_EXCLUDED_LANGUAGES)) {
+    if (rName.toLowerCase() === repoName.toLowerCase()) {
+      if (excludedLangs.some(l => l.toLowerCase() === lang.toLowerCase())) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
 async function fetchJSON(url, timeoutMs = 10000) {
   const res = await fetch(url, { headers: HEADERS, signal: AbortSignal.timeout(timeoutMs) });
   if (!res.ok) {
@@ -240,20 +258,20 @@ function updateSvgFile(fileName, data) {
 
   // 2. Terminal Bio: Uptime
   svgContent = svgContent.replace(
-    /(<tspan fill="#7a7a7a">\. Uptime: <\/tspan><tspan fill="(?:#4d3a66|#d0d7de)">\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.<\/tspan><tspan fill="(?:#e6fbfb|#1f2328)">\s*)[^<]+(<\/tspan>)/,
+    /(<tspan fill="#7a7a7a">\. Uptime: <\/tspan><tspan fill="(?:#4d3a66|#d0d7de)">\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.<\/tspan><tspan fill="(?:#e6fbfb|#1f2328)">)\s*[^<]+(<\/tspan>)/,
     `$1 ${uptime}$2`
   );
 
   // 2. Terminal Bio: Repos & Stars
   svgContent = svgContent.replace(
-    /(<tspan fill="#7a7a7a">\. Repos: <\/tspan><tspan fill="(?:#4d3a66|#d0d7de)">\.\.\.\.\.\.\.\.\.\.\.\.\.<\/tspan><tspan fill="(?:#55ffff|#0969da)">\s*)\d+(\s*<\/tspan><tspan fill="(?:#2d1f3f|#d0d7de)"> \| <\/tspan><tspan fill="#7a7a7a">\. Stars: <\/tspan><tspan fill="(?:#4d3a66|#d0d7de)">\.\.\.\.\.\.\.\.\.\.\.\.\.<\/tspan><tspan fill="(?:#55ffff|#0969da)">\s*)\d+/,
+    /(<tspan fill="#7a7a7a">\. Repos: <\/tspan><tspan fill="(?:#4d3a66|#d0d7de)">\.\.\.\.\.\.\.\.\.\.\.\.\.<\/tspan><tspan fill="(?:#55ffff|#0969da)">)\s*\d+(\s*<\/tspan><tspan fill="(?:#2d1f3f|#d0d7de)"> \| <\/tspan><tspan fill="#7a7a7a">\. Stars: <\/tspan><tspan fill="(?:#4d3a66|#d0d7de)">\.\.\.\.\.\.\.\.\.\.\.\.\.<\/tspan><tspan fill="(?:#55ffff|#0969da)">)\s*\d+/,
     `$1 ${publicRepos}$2 ${totalStars}`
   );
 
   // 2. Terminal Bio: Commits & Followers
   const bioCommits = externalStats.commits !== null ? externalStats.commits : (externalStats.totalContributions || 726);
   svgContent = svgContent.replace(
-    /(<tspan fill="#7a7a7a">\. Commits: <\/tspan><tspan fill="(?:#4d3a66|#d0d7de)">\.\.\.\.\.\.\.\.\.\.<\/tspan><tspan fill="(?:#55ffff|#0969da)">\s*)\d+(\s*<\/tspan><tspan fill="(?:#2d1f3f|#d0d7de)"> \| <\/tspan><tspan fill="#7a7a7a">\. Followers: <\/tspan><tspan fill="(?:#4d3a66|#d0d7de)">\.\.\.\.\.\.\.\.\.<\/tspan><tspan fill="(?:#55ffff|#0969da)">\s*)\d+/,
+    /(<tspan fill="#7a7a7a">\. Commits: <\/tspan><tspan fill="(?:#4d3a66|#d0d7de)">\.\.\.\.\.\.\.\.\.\.<\/tspan><tspan fill="(?:#55ffff|#0969da)">)\s*\d+(\s*<\/tspan><tspan fill="(?:#2d1f3f|#d0d7de)"> \| <\/tspan><tspan fill="#7a7a7a">\. Followers: <\/tspan><tspan fill="(?:#4d3a66|#d0d7de)">\.\.\.\.\.\.\.\.\.<\/tspan><tspan fill="(?:#55ffff|#0969da)">)\s*\d+/,
     `$1 ${bioCommits}$2 ${followers}`
   );
 
@@ -345,6 +363,10 @@ async function updateStats() {
 
     const langs = await fetchJSON(repo.languages_url);
     for (const [lang, bytes] of Object.entries(langs)) {
+      if (isLanguageExcludedForRepo(repo.name, lang)) {
+        console.log(`Excluding ${lang} (${bytes} bytes) from ${repo.name}`);
+        continue;
+      }
       langBytes[lang] = (langBytes[lang] || 0) + bytes;
       totalBytes += bytes;
     }
