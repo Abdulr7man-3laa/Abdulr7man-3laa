@@ -144,7 +144,7 @@
 <text x="12" y="176" font-family="'Consolas', 'Menlo', 'DejaVu Sans Mono', 'JetBrains Mono', monospace" xml:space="preserve" font-size="14"><tspan fill="#7a7a7a">. Email: </tspan><tspan fill="#4d3a66">......................</tspan><tspan fill="#e6fbfb"> abdulr7manx9@gmail.com</tspan></text>
 <text x="12" y="202" font-family="'Consolas', 'Menlo', 'DejaVu Sans Mono', 'JetBrains Mono', monospace" xml:space="preserve" font-size="14"><tspan fill="#2d1f3f">─</tspan><tspan fill="#55ffff"> GitHub Stats </tspan><tspan fill="#2d1f3f">───────────────────────────────────────</tspan></text>
 <text x="12" y="224" font-family="'Consolas', 'Menlo', 'DejaVu Sans Mono', 'JetBrains Mono', monospace" xml:space="preserve" font-size="14"><tspan fill="#7a7a7a">. Repos: </tspan><tspan fill="#4d3a66">.............</tspan><tspan fill="#55ffff"> 12</tspan><tspan fill="#2d1f3f"> | </tspan><tspan fill="#7a7a7a">. Stars: </tspan><tspan fill="#4d3a66">.............</tspan><tspan fill="#55ffff"> 10</tspan></text>
-<text x="12" y="246" font-family="'Consolas', 'Menlo', 'DejaVu Sans Mono', 'JetBrains Mono', monospace" xml:space="preserve" font-size="14"><tspan fill="#7a7a7a">. Commits: </tspan><tspan fill="#4d3a66">..........</tspan><tspan fill="#55ffff"> 306</tspan><tspan fill="#2d1f3f"> | </tspan><tspan fill="#7a7a7a">. Followers: </tspan><tspan fill="#4d3a66">.........</tspan><tspan fill="#55ffff"> 14</tspan></text>
+<text x="12" y="246" font-family="'Consolas', 'Menlo', 'DejaVu Sans Mono', 'JetBrains Mono', monospace" xml:space="preserve" font-size="14"><tspan fill="#7a7a7a">. Commits: </tspan><tspan fill="#4d3a66">..........</tspan><tspan fill="#55ffff"> 304</tspan><tspan fill="#2d1f3f"> | </tspan><tspan fill="#7a7a7a">. Followers: </tspan><tspan fill="#4d3a66">.........</tspan><tspan fill="#55ffff"> 14</tspan></text>
           </g>
         
   
@@ -172,46 +172,47 @@
     
     
     
+    
     <text x="24" y="32" font-family="'Inter Tight', sans-serif" font-size="11" font-weight="500" fill="#7a7a7a" letter-spacing="2">[ TOP LANGUAGES ]</text>
     
       <g transform="translate(24, 48)">
         <circle cx="6" cy="8" r="4" fill="#239120" />
         <text x="18" y="14" font-family="'Inter Tight', sans-serif" font-size="12" fill="#e5e5e5">C#</text>
-        <text x="442" y="14" text-anchor="end" font-family="'Inter Tight', sans-serif" font-size="11" fill="#7a7a7a">28.84%</text>
+        <text x="442" y="14" text-anchor="end" font-family="'Inter Tight', sans-serif" font-size="11" fill="#7a7a7a">34.05%</text>
         <rect x="0" y="20" width="442" height="3" fill="#252525" rx="1" />
-        <rect x="0" y="20" width="127" height="3" fill="#239120" rx="1" />
+        <rect x="0" y="20" width="151" height="3" fill="#239120" rx="1" />
       </g>
     
       <g transform="translate(24, 74)">
         <circle cx="6" cy="8" r="4" fill="#f34b7d" />
         <text x="18" y="14" font-family="'Inter Tight', sans-serif" font-size="12" fill="#e5e5e5">C++</text>
-        <text x="442" y="14" text-anchor="end" font-family="'Inter Tight', sans-serif" font-size="11" fill="#7a7a7a">21.81%</text>
+        <text x="442" y="14" text-anchor="end" font-family="'Inter Tight', sans-serif" font-size="11" fill="#7a7a7a">25.76%</text>
         <rect x="0" y="20" width="442" height="3" fill="#252525" rx="1" />
-        <rect x="0" y="20" width="96" height="3" fill="#f34b7d" rx="1" />
+        <rect x="0" y="20" width="114" height="3" fill="#f34b7d" rx="1" />
       </g>
     
       <g transform="translate(24, 100)">
         <circle cx="6" cy="8" r="4" fill="#e34c26" />
         <text x="18" y="14" font-family="'Inter Tight', sans-serif" font-size="12" fill="#e5e5e5">HTML</text>
-        <text x="442" y="14" text-anchor="end" font-family="'Inter Tight', sans-serif" font-size="11" fill="#7a7a7a">20.46%</text>
+        <text x="442" y="14" text-anchor="end" font-family="'Inter Tight', sans-serif" font-size="11" fill="#7a7a7a">24.16%</text>
         <rect x="0" y="20" width="442" height="3" fill="#252525" rx="1" />
-        <rect x="0" y="20" width="90" height="3" fill="#e34c26" rx="1" />
+        <rect x="0" y="20" width="107" height="3" fill="#e34c26" rx="1" />
       </g>
     
       <g transform="translate(24, 126)">
-        <circle cx="6" cy="8" r="4" fill="#f1e05a" />
-        <text x="18" y="14" font-family="'Inter Tight', sans-serif" font-size="12" fill="#e5e5e5">JavaScript</text>
-        <text x="442" y="14" text-anchor="end" font-family="'Inter Tight', sans-serif" font-size="11" fill="#7a7a7a">11.68%</text>
+        <circle cx="6" cy="8" r="4" fill="#3572A5" />
+        <text x="18" y="14" font-family="'Inter Tight', sans-serif" font-size="12" fill="#e5e5e5">Python</text>
+        <text x="442" y="14" text-anchor="end" font-family="'Inter Tight', sans-serif" font-size="11" fill="#7a7a7a">8.21%</text>
         <rect x="0" y="20" width="442" height="3" fill="#252525" rx="1" />
-        <rect x="0" y="20" width="52" height="3" fill="#f1e05a" rx="1" />
+        <rect x="0" y="20" width="36" height="3" fill="#3572A5" rx="1" />
       </g>
     
       <g transform="translate(24, 152)">
-        <circle cx="6" cy="8" r="4" fill="#3572A5" />
-        <text x="18" y="14" font-family="'Inter Tight', sans-serif" font-size="12" fill="#e5e5e5">Python</text>
-        <text x="442" y="14" text-anchor="end" font-family="'Inter Tight', sans-serif" font-size="11" fill="#7a7a7a">6.95%</text>
+        <circle cx="6" cy="8" r="4" fill="#563d7c" />
+        <text x="18" y="14" font-family="'Inter Tight', sans-serif" font-size="12" fill="#e5e5e5">CSS</text>
+        <text x="442" y="14" text-anchor="end" font-family="'Inter Tight', sans-serif" font-size="11" fill="#7a7a7a">7.82%</text>
         <rect x="0" y="20" width="442" height="3" fill="#252525" rx="1" />
-        <rect x="0" y="20" width="31" height="3" fill="#3572A5" rx="1" />
+        <rect x="0" y="20" width="35" height="3" fill="#563d7c" rx="1" />
       </g>
   </g>
   
@@ -512,7 +513,7 @@
         x="219.01"
         y="12.5"
         data-testid="commits"
-      >306</text>
+      >304</text>
     </g>
   </g><g transform="translate(0, 50)">
     <g class="stagger" style="animation-delay: 750ms" transform="translate(25, 0)">

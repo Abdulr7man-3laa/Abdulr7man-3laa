@@ -1,0 +1,21 @@
+{
+  "userInfo": {
+    "public_repos": 12,
+    "followers": 14,
+    "created_at": "2021-05-29T03:18:12Z"
+  },
+  "repos": [
+    { "name": "Abdulr7man-3laa", "fork": false, "stargazers_count": 0, "languages": { "JavaScript": 54704, "HTML": 4923 } },
+    { "name": "Ball-Breaker-Game", "fork": false, "stargazers_count": 1, "languages": { "Java": 13512 } },
+    { "name": "Contact-Manager", "fork": false, "stargazers_count": 1, "languages": { "C++": 57198 } },
+    { "name": "DEPI-Assignments", "fork": false, "stargazers_count": 1, "languages": { "C#": 100314, "CSS": 4382, "HTML": 3570, "JavaScript": 227 } },
+    { "name": "FizzBuzzAssessment", "fork": false, "stargazers_count": 1, "languages": { "C#": 6813 } },
+    { "name": "MAC-Address-Changer", "fork": false, "stargazers_count": 1, "languages": { "Python": 6025 } },
+    { "name": "MagiskOnWSA", "fork": true, "stargazers_count": 0, "languages": {} },
+    { "name": "NetSec-Toolkit", "fork": false, "stargazers_count": 1, "languages": { "Python": 14364 } },
+    { "name": "Network-Scanner", "fork": false, "stargazers_count": 1, "languages": { "Python": 5442 } },
+    { "name": "Onyx", "fork": false, "stargazers_count": 2, "languages": { "CSS": 20218 } },
+    { "name": "Portfolio", "fork": false, "stargazers_count": 0, "languages": { "CSS": 103885, "HTML": 67528, "JavaScript": 43155 } },
+    { "name": "Quran-Playlist-Manager", "fork": false, "stargazers_count": 1, "languages": { "C++": 23830 } }
+  ]
+}

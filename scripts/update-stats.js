@@ -32,11 +32,11 @@ const LANG_COLORS = {
 };
 
 // Optionally exclude languages from Top Languages display
-const EXCLUDE_FROM_DISPLAY = ['Java'];
+const EXCLUDE_FROM_DISPLAY = ['Java', 'JavaScript'];
 
 // Exclude specific languages from specific repositories
 const REPO_EXCLUDED_LANGUAGES = {
-  'Portfolio': ['CSS'],
+  'Portfolio': ['CSS', 'JavaScript'],
   'Abdulr7man-3laa': ['JavaScript'],
   'Abdulrhman': ['JavaScript']
 };
@@ -351,7 +351,24 @@ function updateReadmeCacheBuster() {
 
 async function updateStats() {
   console.log(`Fetching repositories for user: ${USERNAME}...`);
-  const repos = await fetchJSON(`https://api.github.com/users/${USERNAME}/repos?per_page=100&type=owner`);
+  const cachePath = path.join(__dirname, 'cached-repos.json');
+  let repos = [];
+  let userInfo = null;
+  let useCache = false;
+
+  try {
+    repos = await fetchJSON(`https://api.github.com/users/${USERNAME}/repos?per_page=100&type=owner`);
+  } catch (err) {
+    if (fs.existsSync(cachePath)) {
+      console.warn(`Warning: Could not fetch repos live (${err.message}). Using local cache fallback.`);
+      const cached = JSON.parse(fs.readFileSync(cachePath, 'utf8'));
+      repos = cached.repos || [];
+      userInfo = cached.userInfo || null;
+      useCache = true;
+    } else {
+      throw err;
+    }
+  }
 
   let totalStars = 0;
   const langBytes = {};
@@ -361,10 +378,22 @@ async function updateStats() {
     if (repo.fork) continue;
     totalStars += repo.stargazers_count || 0;
 
-    const langs = await fetchJSON(repo.languages_url);
+    let langs = repo.languages;
+    if (!langs) {
+      try {
+        langs = await fetchJSON(repo.languages_url);
+        repo.languages = langs;
+      } catch (err) {
+        langs = {};
+      }
+    }
+
     for (const [lang, bytes] of Object.entries(langs)) {
       if (isLanguageExcludedForRepo(repo.name, lang)) {
         console.log(`Excluding ${lang} (${bytes} bytes) from ${repo.name}`);
+        continue;
+      }
+      if (EXCLUDE_FROM_DISPLAY.includes(lang)) {
         continue;
       }
       langBytes[lang] = (langBytes[lang] || 0) + bytes;
@@ -392,10 +421,24 @@ async function updateStats() {
   console.log('Calculated Top Languages:', topLanguages);
 
   // Fetch user info for follower & public repo count and created_at for uptime
-  const userInfo = await fetchJSON(`https://api.github.com/users/${USERNAME}`);
-  const publicRepos = userInfo.public_repos || repos.length;
-  const followers = userInfo.followers || 0;
-  const uptime = getUptime(userInfo.created_at || '2021-05-29T03:18:12Z');
+  if (!userInfo) {
+    try {
+      userInfo = await fetchJSON(`https://api.github.com/users/${USERNAME}`);
+    } catch (err) {
+      if (fs.existsSync(cachePath)) {
+        userInfo = JSON.parse(fs.readFileSync(cachePath, 'utf8')).userInfo;
+      }
+    }
+  }
+  const publicRepos = userInfo ? (userInfo.public_repos || repos.length) : repos.length;
+  const followers = userInfo ? (userInfo.followers || 0) : 0;
+  const uptime = getUptime((userInfo && userInfo.created_at) || '2021-05-29T03:18:12Z');
+
+  if (!useCache) {
+    try {
+      fs.writeFileSync(cachePath, JSON.stringify({ userInfo, repos }, null, 2), 'utf8');
+    } catch (e) {}
+  }
 
   console.log(`User stats -> Repos: ${publicRepos}, Stars: ${totalStars}, Followers: ${followers}, Uptime: ${uptime}`);
 
