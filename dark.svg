@@ -144,7 +144,7 @@
 <text x="12" y="176" font-family="'Consolas', 'Menlo', 'DejaVu Sans Mono', 'JetBrains Mono', monospace" xml:space="preserve" font-size="14"><tspan fill="#7a7a7a">. Email: </tspan><tspan fill="#4d3a66">......................</tspan><tspan fill="#e6fbfb"> abdulr7manx9@gmail.com</tspan></text>
 <text x="12" y="202" font-family="'Consolas', 'Menlo', 'DejaVu Sans Mono', 'JetBrains Mono', monospace" xml:space="preserve" font-size="14"><tspan fill="#2d1f3f">─</tspan><tspan fill="#55ffff"> GitHub Stats </tspan><tspan fill="#2d1f3f">───────────────────────────────────────</tspan></text>
 <text x="12" y="224" font-family="'Consolas', 'Menlo', 'DejaVu Sans Mono', 'JetBrains Mono', monospace" xml:space="preserve" font-size="14"><tspan fill="#7a7a7a">. Repos: </tspan><tspan fill="#4d3a66">.............</tspan><tspan fill="#55ffff"> 12</tspan><tspan fill="#2d1f3f"> | </tspan><tspan fill="#7a7a7a">. Stars: </tspan><tspan fill="#4d3a66">.............</tspan><tspan fill="#55ffff"> 10</tspan></text>
-<text x="12" y="246" font-family="'Consolas', 'Menlo', 'DejaVu Sans Mono', 'JetBrains Mono', monospace" xml:space="preserve" font-size="14"><tspan fill="#7a7a7a">. Commits: </tspan><tspan fill="#4d3a66">..........</tspan><tspan fill="#55ffff"> 273</tspan><tspan fill="#2d1f3f"> | </tspan><tspan fill="#7a7a7a">. Followers: </tspan><tspan fill="#4d3a66">.........</tspan><tspan fill="#55ffff"> 14</tspan></text>
+<text x="12" y="246" font-family="'Consolas', 'Menlo', 'DejaVu Sans Mono', 'JetBrains Mono', monospace" xml:space="preserve" font-size="14"><tspan fill="#7a7a7a">. Commits: </tspan><tspan fill="#4d3a66">..........</tspan><tspan fill="#55ffff"> 259</tspan><tspan fill="#2d1f3f"> | </tspan><tspan fill="#7a7a7a">. Followers: </tspan><tspan fill="#4d3a66">.........</tspan><tspan fill="#55ffff"> 14</tspan></text>
           </g>
         
   
@@ -158,6 +158,7 @@
       <rect class="" x="0" y="0" width="526" height="202" fill="transparent" stroke="#252525" stroke-width="1" rx="0" />
       
       
+    
     
     
     
@@ -547,7 +548,7 @@
         x="219.01"
         y="12.5"
         data-testid="commits"
-      >273</text>
+      >259</text>
     </g>
   </g><g transform="translate(0, 50)">
     <g class="stagger" style="animation-delay: 750ms" transform="translate(25, 0)">
